@@ -1,0 +1,16 @@
+{
+  "name": "eve-glyph-gamification-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "EDU-canon build harness for the shipped Victoria gamification engine. Type-checks the vendored engine against React + lucide-react. Repo-as-save-file; no backend, no vendor lock-in.",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "lucide-react": "^0.453.0",
+    "react": "^18.3.1",
+    "typescript": "^5.5.4"
+  }
+}

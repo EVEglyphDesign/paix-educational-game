@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PAIX — Parishioner-Facing Educational Video Game</title>
+<meta name="description" content="PAIX is the parishioner-facing educational video game of the EVE Glyph Design education stream. Distributed through the Catholic parish and Church portal. Safety first, betterment second." />
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=zodiak@400,500,600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0a0f;
+    --surface:rgba(255,255,255,.04);
+    --line:rgba(255,255,255,.12);
+    --text:#f4f4f5;
+    --muted:rgba(255,255,255,.68);
+    --faint:rgba(255,255,255,.42);
+    --primary:#8b7fd6;
+    --gold:#f4c430;
+    --sans:'General Sans',ui-sans-serif,system-ui,sans-serif;
+    --serif:'Zodiak',Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:820px;margin:0 auto;padding:3.5rem 1.5rem 5rem}
+  header .eyebrow{font-family:var(--serif);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.08;letter-spacing:-.015em;margin-bottom:1rem}
+  h2{font-family:var(--serif);font-weight:600;font-size:1.35rem;margin:2.4rem 0 .8rem;letter-spacing:-.005em}
+  p{color:var(--muted);margin-bottom:1rem;font-size:1rem}
+  p.lede{font-size:1.12rem;color:var(--text)}
+  .constitutional{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1rem;margin:1.4rem 0;padding-left:1rem;border-left:2px solid var(--gold)}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem;margin:1.2rem 0}
+  .card h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+  .card p{font-size:.95rem;margin-bottom:.6rem}
+  .card .link{display:inline-block;margin-top:.3rem;font-size:.88rem;font-weight:500}
+  .grid{display:grid;grid-template-columns:1fr;gap:.8rem;margin:1rem 0}
+  @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+  .badge{display:inline-block;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(244,196,48,.35);background:rgba(244,196,48,.08);border-radius:999px;padding:.28rem .75rem;margin-right:.5rem;margin-bottom:.5rem}
+  .badge.muted{color:var(--faint);border-color:var(--line);background:transparent}
+  ul{padding-left:1.3rem;margin:.5rem 0 1rem;color:var(--muted)}
+  ul li{margin:.35rem 0}
+  hr{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
+  footer{color:var(--faint);font-size:.85rem;margin-top:2.5rem;text-align:center;font-family:var(--serif);font-style:italic}
+  footer .attr{font-family:var(--sans);font-style:normal;margin-top:.8rem;font-size:.78rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">EVE Glyph Design · Education Stream</div>
+    <h1>PAIX — a parishioner-facing educational video game.</h1>
+    <p class="lede">PAIX (French for <em>peace</em>) is the game surface of the EVE Glyph Design education program, distributed through the Catholic parish and Church portal. Education first. Religious education is one part of it. Safety first, betterment second.</p>
+    <div class="constitutional">One good deed. One witness. One hour. One token.<br/>Pour le bien-être du peuple.</div>
+  </header>
+
+  <div>
+    <span class="badge">Working development home</span>
+    <span class="badge muted">Public repository · v0</span>
+    <span class="badge muted">Catechetical review pending</span>
+  </div>
+
+  <h2>What this repository is</h2>
+  <p>This is the <strong>working development home</strong> for the PAIX game itself — the playable, the gamification engine, the village surface, the curriculum generator, and the parish-integration layer. The private canon of record — <em>why</em> the game exists and <em>what</em> it must protect — remains in <a href="https://github.com/EVEglyphDesign/eve-glyph-education">eve-glyph-education</a>. See <a href="https://github.com/EVEglyphDesign/paix-educational-game/blob/main/CANON-PROVENANCE.md">CANON-PROVENANCE.md</a> for the authoritative mapping.</p>
+
+  <h2>What PAIX is</h2>
+  <div class="card">
+    <h3>Education first, religion as subsection</h3>
+    <p>The parent program is education. Catechesis is one lane inside it. PAIX carries broader educational functions and stays compatible with Catholic doctrine wherever catechetical content appears.</p>
+  </div>
+  <div class="card">
+    <h3>Fixed-output catechetical path</h3>
+    <p>Catechetical outputs are hardened toward reviewed, deterministic answers — not open-ended generative guesses — before any parishioner release. Any catechetical surface ships <em>disabled</em> until Church review is complete.</p>
+  </div>
+  <div class="card">
+    <h3>Parish-embedded distribution</h3>
+    <p>PAIX is designed to be reached through the parish portal, not marketed as a standalone secular game. Parishioners enter through their parish, not through an app store.</p>
+    <a class="link" href="https://eveglyphdesign.github.io/paix-parish-platform/">Open the parish portal →</a>
+  </div>
+  <div class="card">
+    <h3>Safety first, betterment second</h3>
+    <p>No child, parent, or parishioner should be worse off after playing than before. If in doubt, the game refuses to render rather than risk harm. This ordering is non-negotiable and precedes any improvement, monetization, or scale claim.</p>
+  </div>
+
+  <h2>Try the training instrument</h2>
+  <p>The first worked, playable instance is the <strong>Spinning Sphere</strong> training instrument: a self-contained HTML + <code>&lt;canvas&gt;</code> build with no framework, no build step, no backend, and no accounts. Fictional imagery, real cognitive imprint.</p>
+  <p><strong>Note:</strong> The current playable carries the general (non-parish) framing inherited from the source canon. The parish-framed wrapper — locality anchor, parish-appropriate onboarding copy, and Church-review-gated catechetical lane — is the next commit target for this repository.</p>
+  <div class="card">
+    <h3>Spinning Sphere — playable instance</h3>
+    <p>You steady the sphere because you love what rides on it.</p>
+    <a class="link" href="../playable/">Open the playable →</a>
+    <span style="display:block;margin-top:.5rem;font-size:.8rem;color:var(--faint)">Path: <code>/playable/index.html</code> — served directly from this repository after Pages promotes the playable path.</span>
+  </div>
+
+  <h2>Repository map</h2>
+  <div class="grid">
+    <div class="card"><h3>playable/</h3><p>The first worked Spinning Sphere training instance. Self-contained HTML + canvas.</p><a class="link" href="https://github.com/EVEglyphDesign/paix-educational-game/tree/main/playable">Source →</a></div>
+    <div class="card"><h3>design/</h3><p>Universal game design canon: purpose, start position, simulation, avatar, speed discipline, callsign glyph.</p><a class="link" href="https://github.com/EVEglyphDesign/paix-educational-game/tree/main/design">Source →</a></div>
+    <div class="card"><h3>village/</h3><p>School/cohort-scoped, voice-first, service-and-evidence common surface for children inside the console.</p><a class="link" href="https://github.com/EVEglyphDesign/paix-educational-game/tree/main/village">Source →</a></div>
+    <div class="card"><h3>loss-conditions/</h3><p>Consent-gated loved-things registry, fictional destruction, reset-across-sessions preservation.</p><a class="link" href="https://github.com/EVEglyphDesign/paix-educational-game/tree/main/loss-conditions">Source →</a></div>
+    <div class="card"><h3>gamification-engine/</h3><p>Journey / progress / nodes engine (TypeScript). Not wired to the playable yet.</p><a class="link" href="https://github.com/EVEglyphDesign/paix-educational-game/tree/main/gamification-engine">Source →</a></div>
+    <div class="card"><h3>curriculum-generator/ · integration-layer/</h3><p>Adaptive curriculum stub and parish-integration hooks. Failures route to the curriculum generator; parish-portal wiring lives in the integration layer.</p><a class="link" href="https://github.com/EVEglyphDesign/paix-educational-game/tree/main">Source →</a></div>
+  </div>
+
+  <h2>Related surfaces</h2>
+  <ul>
+    <li><a href="https://eveglyphdesign.github.io/paix-parish-platform/">paix-parish-platform</a> — the six-parish multi-parish demo (Holy Trinity Lenexa featured first)</li>
+    <li><a href="https://eveglyphdesign.github.io/holy-trinity-caisse/">holy-trinity-caisse</a> — the Holy Trinity Lenexa mutual-aid economy pilot</li>
+    <li><a href="https://github.com/EVEglyphDesign/eve-glyph-education">eve-glyph-education</a> — private canon of record for the education stream</li>
+    <li><a href="https://eveglyphdesign.github.io/eve-glyph-education-public/">eve-glyph-education-public</a> — public reading mirror of the education stream</li>
+    <li><a href="https://github.com/EVEglyphDesign/eve-hyperloop">eve-hyperloop</a> — adjacent children's twin-onboarding game</li>
+    <li><a href="https://github.com/EVEglyphDesign/starship-academy-training-series">starship-academy-training-series</a> — enterprise / adult education label</li>
+  </ul>
+
+  <hr/>
+
+  <footer>
+    © 2026 Dany Theriault. EVE glyph and glyph-based design principles — all rights reserved.<br/>
+    Stewardship for large public and institutional usage: Pacific Utilities Design Council.<br/>
+    <span class="attr">Published as a time-stamped record of authorship and intent.</span>
+  </footer>
+</div>
+</body>
+</html>
