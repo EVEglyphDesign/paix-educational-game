@@ -400,25 +400,66 @@
   function hud(on) { document.getElementById("hud").classList.toggle("on", on); }
   function controls(on) { document.getElementById("controls").classList.toggle("on", on); }
   function homelink(on){ document.getElementById("homelink").classList.toggle("on", on); }
+  function paixBadge(on){ const b = document.getElementById("paix-badge"); if (b) b.classList.toggle("on", on); }
 
   const FOOTER = `<p class="small" style="margin-top:1.2rem;border-top:1px solid var(--line);padding-top:.9rem">© 2026 Dany Theriault. EVE glyph & glyph-based design principles — all rights reserved. Stewardship rests with the Pacific Utilities Design Council. <em style="color:var(--muted)">Pour le bien-être du peuple.</em></p>`;
 
-  function intro() {
-    S.phase = "intro"; homelink(true);
+  // Parish-framed cover — the first surface a parishioner sees. This is what makes
+  // this instrument PAIX rather than the general Spinning Sphere. It sits *before*
+  // intro() and hands off to it unchanged. Zero mechanics touched.
+  function paix() {
+    S.phase = "paix"; homelink(true); paixBadge(false);
     openPanel(`
-      <p class="eyebrow">A training instrument · not entertainment</p>
+      <div class="paix-card">
+        <p class="eyebrow">EVE Glyph Design · Education stream</p>
+        <h1>PAIX — a parishioner-facing training instrument.</h1>
+        <p>PAIX (French for <em>peace</em>) is the game surface of the EVE Glyph Design education program, distributed through the Catholic parish and Church portal. Education first. Religious education is one part of it. You are about to enter the <strong>Spinning Sphere</strong>, the training instrument at PAIX's core.</p>
+
+        <div class="constitutional">One good deed. One witness. One hour. One token.<br/>Pour le bien-être du peuple.</div>
+
+        <div class="anchors">
+          <div class="anchor"><h4>Education first, religion as subsection</h4><p>PAIX carries broader educational functions and stays compatible with Catholic doctrine where catechetical content appears.</p></div>
+          <div class="anchor"><h4>Safety first, betterment second</h4><p>No child, parent, or parishioner should be worse off after playing than before. If in doubt, the game refuses to render.</p></div>
+          <div class="anchor"><h4>Parish-embedded distribution</h4><p>You reached PAIX through your parish, not through an app store. Your parish is the trusted channel.</p></div>
+          <div class="anchor"><h4>Fictional imagery, real imprint</h4><p>What you will see is a picture of the concept as it appears in the operator's imagination — not a claim about the world.</p></div>
+        </div>
+
+        <div class="review-notice"><strong>Church review gate.</strong> Catechetical content is <em>disabled</em> in this build pending doctrinal-conformance review. What follows is the general training instrument only — classification, balance, and consent-gated loss — without any catechetical lane rendered.</div>
+
+        <p class="locality"><strong>Holy Trinity Lenexa pilot.</strong> The parish caisse pilot lives at <a href="https://eveglyphdesign.github.io/holy-trinity-caisse/" style="color:var(--primary)">holy-trinity-caisse</a>. The multi-parish portal lives at <a href="https://eveglyphdesign.github.io/paix-parish-platform/" style="color:var(--primary)">paix-parish-platform</a>.</p>
+
+        <div class="btns">
+          <button class="act primary" id="paix-go">Continue to the training instrument →</button>
+          <button class="act ghost" id="paix-back">Back to parish portal</button>
+        </div>
+        <a class="secondary-link" href="https://eveglyphdesign.github.io/paix-educational-game/">Not a parishioner? Read the repository landing instead.</a>
+
+        ${FOOTER}
+      </div>`);
+    document.getElementById("paix-go").onclick = intro;
+    document.getElementById("paix-back").onclick = () => { window.location.href = "https://eveglyphdesign.github.io/paix-parish-platform/"; };
+  }
+
+  function intro() {
+    S.phase = "intro"; homelink(true); paixBadge(true);
+    openPanel(`
+      <p class="eyebrow">Training instrument · inside PAIX</p>
       <h1>The Spinning Sphere</h1>
       <p>Three points can spin. Add agents and the structure rounds into a sphere — smoother when balanced, more violent when it wobbles. Hold speed without letting the wobble break the world.</p>
       <p class="small" style="color:#f9a8d4">The lesson underneath it all: you steady the sphere <em>because</em> you love what rides on it. <em>Love is the key to infinity.</em> ♥️🔑♾️</p>
       <div class="fict">This imagery is fictional — a picture of the concept as it appears in Dany's imagination. It is a video game for practicing classification and consulting concepts through play. It is <strong>not</strong> a claim about how anything is or should be in the real world.</div>
       <p class="small">No accounts. No backend. Nothing you type leaves this page or is stored anywhere. A friendly guide walks with you.</p>
-      <div class="btns"><button class="act primary" id="go">Meet the guide →</button></div>
+      <div class="btns">
+        <button class="act primary" id="go">Meet the guide →</button>
+        <button class="act ghost" id="back-paix">← Back to PAIX cover</button>
+      </div>
       ${FOOTER}`);
     document.getElementById("go").onclick = startPosition;
+    document.getElementById("back-paix").onclick = paix;
   }
 
   function startPosition() {
-    S.phase = "startpos";
+    S.phase = "startpos"; paixBadge(true);
     openPanel(`
       <p class="eyebrow">Session opening · the start position</p>
       <h2>Enter your start position</h2>
@@ -451,7 +492,7 @@
   }
 
   function registryConsent() {
-    S.phase = "registry";
+    S.phase = "registry"; paixBadge(true);
     openPanel(`
       <p class="eyebrow">The loss-condition · consent required</p>
       <h2>Name the things you love</h2>
@@ -481,7 +522,7 @@
 
   // the alien demonstrates (Stages 1-4), auto-advancing, then hands over (Stage 5)
   function demo() {
-    S.phase = "demo"; closePanel(); homelink(true);
+    S.phase = "demo"; closePanel(); homelink(true); paixBadge(true);
     seedTriangle(); S.demoStage = 0; S.playing = false; S.exploded = false;
     say(pick(ALIEN.greet), 2600);
     const seq = [
@@ -650,6 +691,6 @@
     });
   }
 
-  // boot
-  intro();
+  // boot — parishioner enters at the PAIX cover, which hands off to intro()
+  paix();
 })();

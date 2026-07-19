@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
-<title>The Spinning Sphere — A Training Instrument</title>
-<meta name="description" content="A single-surface training game: balance the spinning sphere as it grows, hold speed without wobble. Fictional imagery, real cognitive imprint. No accounts, no backend." />
+<title>PAIX — Parishioner-Facing Educational Video Game (Spinning Sphere)</title>
+<meta name="description" content="PAIX is the parishioner-facing educational video game of the EVE Glyph Design education program, distributed through the parish and Church portal. Education first; religious education is one part of it. Safety first, betterment second. The Spinning Sphere is the training instrument at its core: fictional imagery, real cognitive imprint. No accounts, no backend." />
 <link rel="preconnect" href="https://api.fontshare.com" />
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=zodiak@400,500,600&display=swap" rel="stylesheet" />
 <style>
@@ -78,11 +78,24 @@
   a.homelink{position:fixed;top:.9rem;left:50%;transform:translateX(-50%);z-index:16;font-size:.72rem;color:var(--faint);text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:.3rem .8rem;background:rgba(10,10,14,.5);backdrop-filter:blur(6px);opacity:0;transition:.3s;white-space:nowrap}
   a.homelink.on{opacity:1}
   a.homelink:hover{color:var(--text)}
+  .paix-badge{position:fixed;top:2.6rem;left:50%;transform:translateX(-50%);z-index:16;font-family:var(--serif);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);border:1px solid hsl(45 80% 55% / .3);background:rgba(244,196,48,.06);border-radius:999px;padding:.22rem .7rem;opacity:0;transition:.3s;white-space:nowrap;pointer-events:none}
+  .paix-badge.on{opacity:1}
+  /* Parish-framed onboarding card: warmer accents, a locality anchor, church-review notice */
+  .paix-card .constitutional{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:.98rem;margin:.9rem 0;padding-left:.9rem;border-left:2px solid var(--gold);line-height:1.5}
+  .paix-card .anchors{display:grid;grid-template-columns:1fr;gap:.55rem;margin:1rem 0}
+  @media(min-width:520px){.paix-card .anchors{grid-template-columns:1fr 1fr}}
+  .paix-card .anchor{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:.65rem .8rem}
+  .paix-card .anchor h4{font-family:var(--serif);font-size:.78rem;letter-spacing:.02em;font-weight:600;margin-bottom:.2rem;color:var(--text)}
+  .paix-card .anchor p{font-size:.82rem;margin:0;color:var(--muted);line-height:1.45}
+  .paix-card .review-notice{border:1px dashed hsl(45 80% 55% / .5);background:hsl(45 80% 55% / .06);border-radius:10px;padding:.7rem .85rem;font-size:.82rem;color:var(--gold);margin:.9rem 0}
+  .paix-card .locality{font-size:.78rem;color:var(--muted);margin-top:.6rem}
+  .paix-card .secondary-link{display:inline-block;margin-top:.6rem;font-size:.78rem;color:var(--faint);text-decoration:underline}
+  .paix-card .secondary-link:hover{color:var(--muted)}
   #sound-toggle{position:fixed;top:.9rem;right:.9rem;z-index:30;font:inherit;font-size:.7rem;color:var(--faint);background:rgba(10,10,14,.5);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:.3rem .7rem;cursor:pointer;backdrop-filter:blur(6px);transition:.25s;white-space:nowrap}
   #sound-toggle:hover{color:var(--text);border-color:rgba(255,255,255,.25)}
   #sound-toggle.on{color:var(--gold,#f4c430);border-color:hsl(45 80% 55% / .4)}
   @media(max-width:600px){
-    #hud{flex-direction:row;top:2.9rem;padding:.5rem .7rem}
+    #hud{flex-direction:row;top:4.4rem;padding:.5rem .7rem}
     .hud-box{padding:.4rem .55rem}
     .hud-label{font-size:.55rem;letter-spacing:.1em}
     .hud-val{font-size:.9rem}
@@ -90,13 +103,15 @@
     input[type=range]{width:110px}
     a.homelink{top:.6rem;font-size:.66rem;padding:.28rem .6rem}
     #sound-toggle{top:.6rem;right:.6rem;font-size:.66rem;padding:.28rem .55rem}
+    .paix-badge{top:2.1rem;font-size:.55rem;letter-spacing:.18em;padding:.18rem .55rem}
   }
 </style>
 </head>
 <body>
 <div id="stage"><canvas id="c"></canvas></div>
 
-<a class="homelink" id="homelink" href="../">← back to the surface</a>
+<a class="homelink" id="homelink" href="https://eveglyphdesign.github.io/paix-parish-platform/">← back to the parish portal</a>
+<div id="paix-badge" class="paix-badge" aria-hidden="true">PAIX · Holy Trinity Lenexa pilot</div>
 <button id="sound-toggle" aria-label="Toggle sound" title="Sound is off — click to enable">🔇 Sound</button>
 
 <!-- HUD -->
