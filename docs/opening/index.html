@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>PAIX — Opening Sequence · EVEglyphDesign</title>
+<meta name="description" content="URIEL, the useful alien. Opening sequence of the PAIX educational game — EVEglyphDesign." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23fdfaf4'/><circle cx='16' cy='18' r='6' fill='%23e87722'/><path d='M16 4 L16 12' stroke='%231a1a1a' stroke-width='2'/></svg>" />
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="mark">
+    <svg class="logo" viewBox="0 0 28 28" fill="none" aria-label="EVEglyphDesign">
+      <circle cx="14" cy="17" r="7" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="14" cy="17" r="2.6" fill="var(--accent)"/>
+      <path d="M14 3v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M6.5 8.5 9 11M21.5 8.5 19 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <span>EVEglyphDesign<span class="dim"> · PAIX</span></span>
+  </div>
+  <div class="topright">
+    <button id="motionBtn" class="ghostbtn" aria-pressed="false">Calm motion</button>
+    <span class="docid">EgD-PAIX-OPEN-001</span>
+  </div>
+</header>
+
+<main id="stage" class="stage" tabindex="-1">
+
+  <!-- CHARACTER -->
+  <div class="uriel-wrap" id="urielWrap" aria-hidden="true">
+    <div class="uriel-float">
+      <div class="uriel-breathe">
+        <img id="urielImg" class="uriel" src="assets/uriel.png" alt="" />
+        <span class="lantern-glow" id="lantern"></span>
+      </div>
+    </div>
+    <div class="ground-line"></div>
+  </div>
+
+  <!-- SPEECH -->
+  <section class="panel" aria-live="polite">
+    <p class="screen-kicker" id="kicker">ARRIVAL</p>
+    <h1 class="line" id="line"></h1>
+    <p class="sub" id="sub"></p>
+
+    <ul class="points" id="points"></ul>
+
+    <div class="controls">
+      <button class="primary" id="nextBtn">
+        <span id="nextLabel">He waves</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="quiet" id="backBtn">Back</button>
+      <span class="hint" id="hint">Press <kbd>Space</kbd></span>
+    </div>
+  </section>
+
+  <!-- PROGRESS -->
+  <nav class="progress" id="progress" aria-label="Opening sequence progress"></nav>
+</main>
+
+<!-- GROWN-UP CARD -->
+<div class="sheet-scrim" id="scrim" hidden></div>
+<aside class="sheet" id="sheet" hidden aria-labelledby="sheetTitle">
+  <button class="closebtn" id="closeSheet" aria-label="Close">×</button>
+  <p class="screen-kicker">FOR THE GROWN-UP</p>
+  <h2 id="sheetTitle">What this game will not do to your child</h2>
+  <div class="declist">
+    <div class="dec"><span class="no">NO</span><div><b>No open chat, no strangers, no direct messages.</b> There is no channel through which an adult can reach a child inside PAIX. None is planned.</div></div>
+    <div class="dec"><span class="no">NO</span><div><b>No image or video upload, no camera, no microphone.</b> Nothing can be sent in, so nothing indecent can be pushed at a child or extracted from one.</div></div>
+    <div class="dec"><span class="no">NO</span><div><b>No advertising, no third-party trackers, no outbound links.</b> The world is closed. There is no click that leads out of it.</div></div>
+    <div class="dec"><span class="no">NO</span><div><b>No infinite scroll, no streaks, no loot boxes, no timers that punish leaving.</b> Nothing here is engineered to be hard to stop.</div></div>
+    <div class="dec"><span class="no">NO</span><div><b>No accounts sold, no child data brokered.</b> Progress is stored on the device. There is nothing to harvest.</div></div>
+    <div class="dec yes"><span class="no ok">YES</span><div><b>URIEL stops the game every twelve minutes and stands up.</b> The Stand-Up is not skippable and it is not a penalty. It is the posture rule, enforced by the narrator rather than by a parent.</div></div>
+  </div>
+  <p class="sheetfoot">EVEglyphDesign · safety first, betterment second · <em>Pour le bien-être du peuple</em></p>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
