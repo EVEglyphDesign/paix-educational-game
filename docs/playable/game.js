@@ -610,6 +610,9 @@
   // ---------- main loop ----------
   let last = performance.now();
   function frame(now) {
+    // Rule one: while the Stand-Up is on screen the level does not advance.
+    // Nothing runs down, nothing is lost. See ../standup/standup.js.
+    if (window.__paixFrozen) { last = now; requestAnimationFrame(frame); return; }
     const dt = Math.min(0.05, (now - last) / 1000); last = now;
     ctx.clearRect(0, 0, W, H);
     // background vignette

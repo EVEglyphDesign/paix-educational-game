@@ -147,5 +147,15 @@
 <div class="layer on" id="layer"><div class="panel" id="panel"></div></div>
 
 <script src="./game.js"></script>
+<!-- Rule one: the body. The Stand-Up interrupts this level every twelve minutes
+     of play. Not skippable, not a penalty. EgD-PAIX-SU-001. -->
+<script type="module">
+  import { StandUp } from '../standup/standup.js';
+  window.paixStandUp = StandUp.install({
+    asset: '../opening/assets/uriel.png',
+    onPause:  () => { window.__paixFrozen = true;  try { window.Sound && window.Sound.disable(); } catch (e) {} },
+    onResume: () => { window.__paixFrozen = false; }
+  });
+</script>
 </body>
 </html>

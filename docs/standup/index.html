@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Stand-Up — importable interrupt · EVEglyphDesign PAIX</title>
+<meta name="description" content="Rule one of the PAIX narrator canon as a drop-in component. Every twelve minutes URIEL stops the level and stands up. Not skippable, not a penalty." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#fdfaf4;--cream2:#f7f2e7;--ink:#1a1a1a;--line:#e7e1d3;--mute:#6b665c;--accent:#e87722}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.6 Inter,system-ui,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  .grain{position:fixed;inset:0;pointer-events:none;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px,rgba(26,26,26,.045) 1px,transparent 0);background-size:4px 4px}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding:1rem clamp(1.2rem,5vw,3rem);border-bottom:1px solid var(--line);font-size:.78rem;font-weight:600;letter-spacing:.04em}
+  .bar .id{font-size:.64rem;letter-spacing:.14em;color:var(--mute)}
+  main{max-width:56rem;margin:0 auto;padding:clamp(2rem,6vw,4rem) clamp(1.2rem,5vw,3rem) 6rem;position:relative}
+  .kick{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 .7rem}
+  h1{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.12;
+     letter-spacing:-.012em;margin:0 0 1rem}
+  h2{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.4rem;margin:2.8rem 0 .8rem}
+  p{max-width:38rem}
+  .lede{font-size:1.05rem;color:var(--mute);max-width:38rem}
+  .row{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;margin:1.8rem 0 0}
+  button{font:inherit}
+  .primary{font-weight:600;font-size:.92rem;background:var(--ink);color:var(--cream);border:none;border-radius:2px;
+    padding:.8rem 1.3rem;cursor:pointer}
+  .primary:hover{background:#000}
+  .ghost{font-size:.82rem;background:none;border:1px solid var(--line);color:var(--mute);border-radius:2px;
+    padding:.72rem 1rem;cursor:pointer}
+  .ghost:hover{border-color:var(--ink);color:var(--ink)}
+  .clock{display:flex;align-items:center;gap:.7rem;margin-top:1.6rem;font-size:.85rem;color:var(--mute)}
+  .clock b{font-family:Fraunces,Georgia,serif;font-size:1.5rem;color:var(--ink);font-variant-numeric:tabular-nums}
+  .track{height:3px;background:var(--line);border-radius:2px;max-width:38rem;margin-top:.7rem;overflow:hidden}
+  .fill{height:100%;width:0;background:var(--accent);transition:width .9s linear}
+  pre{background:var(--cream2);border:1px solid var(--line);border-left:2px solid var(--accent);
+    padding:1.1rem 1.2rem;overflow-x:auto;font:13px/1.7 "JetBrains Mono",ui-monospace,monospace;margin:1rem 0 0}
+  table{border-collapse:collapse;width:100%;max-width:44rem;margin-top:1rem;font-size:.88rem}
+  th,td{text-align:left;padding:.62rem .8rem .62rem 0;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  code{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.86em}
+  .rules{list-style:none;padding:0;margin:1rem 0 0;max-width:38rem}
+  .rules li{border-left:2px solid var(--line);padding:.7rem 0 .7rem .95rem;margin-bottom:.55rem;font-size:.95rem}
+  .rules li.hot{border-left-color:var(--accent)}
+  footer{border-top:1px solid var(--line);margin-top:3.4rem;padding-top:1rem;font-size:.72rem;color:var(--mute);
+    display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  footer em{font-family:Fraunces,Georgia,serif;font-style:normal}
+  a{color:var(--ink);text-underline-offset:3px;text-decoration-color:var(--line)}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="bar">
+  <span>EVEglyphDesign · PAIX · <span style="color:var(--mute);font-weight:500">rule one: the body</span></span>
+  <span class="id">EgD-PAIX-SU-001</span>
+</div>
+
+<main>
+  <p class="kick">The Stand-Up · importable interrupt</p>
+  <h1>Every twelve minutes, the level stops and URIEL stands up.</h1>
+  <p class="lede">Not skippable. Not a penalty. Nothing is lost by stopping. This page is the working component and the integration harness — any level in PAIX imports the same file and inherits the rule.</p>
+
+  <div class="row">
+    <button class="primary" id="runNow">Run the Stand-Up now</button>
+    <button class="ghost" id="fast">Fast-forward the clock (12 min in 12 s)</button>
+    <button class="ghost" id="resetClock">Reset the clock</button>
+  </div>
+
+  <div class="clock">
+    <b id="remaining">12:00</b>
+    <span>until the next Stand-Up · counts play time only, pauses when the tab is hidden</span>
+  </div>
+  <div class="track"><div class="fill" id="fill"></div></div>
+
+  <h2>What it does to the child's body</h2>
+  <ul class="rules">
+    <li class="hot"><b>EYES · 20 seconds.</b> Look at the farthest thing in the room. Eyes were built for distance; a screen keeps them locked at arm's length.</li>
+    <li class="hot"><b>SPINE · 20 seconds.</b> Stand, chin back over the shoulders, head over ribs over hips. This is the one that keeps the neck from setting in the forward curve.</li>
+    <li class="hot"><b>REACH · 20 seconds.</b> Reach up, lean left, lean right. Opens the front of the chest so the shoulders do not stay rolled forward.</li>
+    <li><b>A seated alternative is always one click away.</b> A child who cannot stand — chair, cast, bad day — gets the same beat sitting down. That is an alternative, not a skip.</li>
+  </ul>
+
+  <h2>Import it</h2>
+  <pre>&lt;script type="module"&gt;
+  import { StandUp } from '../standup/standup.js';
+
+  const standUp = StandUp.install({
+    asset:    '../opening/assets/uriel.png',
+    onPause:  () =&gt; level.pause(),   // your level stops here
+    onResume: () =&gt; level.resume(),  // and picks up exactly where it was
+  });
+&lt;/script&gt;</pre>
+
+  <p style="margin-top:1rem;font-size:.9rem;color:var(--mute)">Classic script tag also works — the file exposes <code>window.PaixStandUp</code>. The component ships its own styles, needs no build step, makes no network call, and stores nothing but a millisecond count in <code>localStorage</code> on the device.</p>
+
+  <h2>Options</h2>
+  <table>
+    <tr><th>Option</th><th>Default</th><th>What it is</th></tr>
+    <tr><td><code>intervalMs</code></td><td><code>720000</code></td><td>Play time between interrupts. Twelve minutes is canon; lower it for younger cohorts, never raise it.</td></tr>
+    <tr><td><code>asset</code></td><td><code>./assets/uriel.png</code></td><td>Path to the URIEL cutout from the level's own folder.</td></tr>
+    <tr><td><code>onPause</code> / <code>onResume</code></td><td><code>null</code></td><td>Stop and restart the level. Also fired as DOM events.</td></tr>
+    <tr><td><code>onStep</code></td><td><code>null</code></td><td>Called with each stretch step, for levels that want their own cue.</td></tr>
+    <tr><td><code>steps</code></td><td>eyes / spine / reach</td><td>Override the stretch. Each step needs a seated alternative or it will not seat.</td></tr>
+    <tr><td><code>persist</code></td><td><code>true</code></td><td>Device-local elapsed count. Set <code>false</code> to store nothing at all.</td></tr>
+    <tr><td><code>countIdleAsPlay</code></td><td><code>false</code></td><td>Hidden tabs and blurred windows do not count as play.</td></tr>
+    <tr><td><code>calm</code></td><td><code>false</code></td><td>Freezes all motion. <code>prefers-reduced-motion</code> does this automatically.</td></tr>
+  </table>
+
+  <h2>Methods and events</h2>
+  <table>
+    <tr><th>Call</th><th>Effect</th></tr>
+    <tr><td><code>standUp.trigger()</code></td><td>Run it now — for teachers, harnesses and tests.</td></tr>
+    <tr><td><code>standUp.remaining()</code></td><td>Milliseconds of play left before the next one.</td></tr>
+    <tr><td><code>standUp.pause()</code> / <code>.start()</code></td><td>Hold and resume the play clock, e.g. across your own menus.</td></tr>
+    <tr><td><code>standUp.reset()</code></td><td>Zero the clock. Levels should call this after their own long cutscene.</td></tr>
+    <tr><td><code>document.addEventListener('paix:standup:start' | 'paix:standup:end', …)</code></td><td>For anything that is not the level itself — audio, telemetry-free logging, a village surface.</td></tr>
+  </table>
+
+  <h2>What it refuses to do</h2>
+  <ul class="rules">
+    <li><b>No skip button, no Escape key, no click-outside.</b> The child cannot dismiss the body rule, and neither can the level.</li>
+    <li><b>No penalty for the interruption.</b> No streak breaks, no timer runs down, no progress is lost. The panel says so on screen.</li>
+    <li><b>No network call, no account, no child data off the device.</b> The only thing written is a millisecond count, and that can be turned off.</li>
+    <li><b>No shame.</b> URIEL does the stretch badly alongside the child, because he is off-balance. That is in the canon and it stays.</li>
+  </ul>
+
+  <footer>
+    <span>© 2026 EVEglyphDesign · The Stand-Up · EgD-PAIX-SU-001 · <a href="../">PAIX repository home</a> · <a href="../opening/">opening sequence</a></span>
+    <em>Pour le bien-être du peuple</em>
+  </footer>
+</main>
+
+<script type="module">
+  import { StandUp } from './standup.js';
+
+  const standUp = StandUp.install({
+    asset: '../opening/assets/uriel.png',
+    onPause:  () => console.log('[harness] level paused by the Stand-Up'),
+    onResume: () => console.log('[harness] level resumed'),
+  });
+  window.standUp = standUp;
+
+  const remaining = document.getElementById('remaining');
+  const fill = document.getElementById('fill');
+  const mmss = (ms) => {
+    const t = Math.max(0, Math.round(ms / 1000));
+    return String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0');
+  };
+  setInterval(() => {
+    const r = standUp.remaining();
+    remaining.textContent = mmss(r);
+    fill.style.width = (100 * (1 - r / 720000)).toFixed(1) + '%';
+  }, 900);
+
+  document.getElementById('runNow').addEventListener('click', () => standUp.trigger());
+  document.getElementById('resetClock').addEventListener('click', () => standUp.reset());
+  document.getElementById('fast').addEventListener('click', () => {
+    // harness only: pour 60x play time into the clock so the rule fires in ~12s
+    const boost = setInterval(() => {
+      standUp.elapsed += 59000;
+      if (standUp.open) clearInterval(boost);
+    }, 1000);
+    setTimeout(() => clearInterval(boost), 14000);
+  });
+</script>
+</body>
+</html>

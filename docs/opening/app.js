@@ -166,8 +166,15 @@ function go(n) {
 
 function advance() {
   if (busy) { clearInterval(typing); line.textContent = SCREENS[i].line; }
-  if (i === SCREENS.length - 1) { openSheet(); return; }
+  if (i === SCREENS.length - 1) { begin(); return; }
   go(i + 1);
+}
+
+// Begin: the play clock starts here at zero, and rule one takes over from the
+// first twelve minutes onward. See ../standup/standup.js (EgD-PAIX-SU-001).
+function begin() {
+  try { localStorage.setItem("paix.standup.elapsed", "0"); } catch (e) {}
+  window.location.href = "../playable/";
 }
 
 function openSheet() {

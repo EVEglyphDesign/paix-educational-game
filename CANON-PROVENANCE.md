@@ -116,3 +116,41 @@ future change to the game that breaks one of them breaks canon.
    the child has described what should exist. That order never reverses.
 
 *Pour le bien-être du peuple.*
+
+## Rule one as a component — The Stand-Up (added 2026-07-25)
+
+- **File:** `docs/standup/standup.js` — Document ID `EgD-PAIX-SU-001`.
+  Self-contained ES module, also exposed as `window.PaixStandUp`. No build step,
+  no dependencies, no backend. Ships its own styles and DOM.
+- **Harness:** `docs/standup/` — integration page any level can copy from,
+  with a fast-forward for review.
+- **Spec:** `docs/EVEglyphDesign_The_StandUp_Integration_Spec.pdf` —
+  Document ID `EgD-PAIX-SU-001`, Key ID `EgD-KEY-2026-07`,
+  SHA-256 (content) `f7b70db7524d5e5aa42b6f710d28c9de1205db1ff9aad888cb4096f0342b25f7`,
+  issued 2026-07-25T20:30:52Z. Controlled copy.
+- **Live in:** `docs/playable/` (Spinning Sphere). The loop freezes on
+  `window.__paixFrozen` and resets its frame delta, so resume is seamless.
+- **Opening handoff:** the Begin button on screen six of `docs/opening/` zeroes
+  the play clock and hands the child to the playable, where rule one takes over.
+
+### Binding properties — a change to any of these is a canon breach
+
+1. **Not skippable.** No dismiss control, Escape swallowed, click-outside inert,
+   focus trapped. Neither the child nor the importing level can suppress it.
+2. **Not a penalty.** The level is frozen, not merely covered. No timer runs
+   down, no streak breaks, no progress is lost, and the panel says so on screen.
+3. **Seated alternative, never a skip.** A child who cannot stand gets the same
+   beat sitting down, one click away. Accommodation is not opting out.
+4. **Never scored or rewarded.** A rewarded stretch is a manipulated stretch.
+5. **Twelve minutes maximum interval.** `intervalMs` may be lowered for younger
+   cohorts. It may never be raised.
+6. **No network call beyond CDN fonts, no account, no child data off the
+   device.** The only thing written is a millisecond count in localStorage, and
+   `persist: false` removes even that.
+7. **URIEL does the stretch badly, alongside the child.** No shame, no grading.
+
+The stretch itself: EYES 20s (farthest thing in the room), SPINE 20s (stand,
+chin back over the shoulders), REACH 20s (reach up, lean each way), then a
+six-second closing beat. Sixty-six seconds out of every twelve minutes.
+
+*Pour le bien-être du peuple.*
