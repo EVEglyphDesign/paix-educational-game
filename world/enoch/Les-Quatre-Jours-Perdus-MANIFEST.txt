@@ -1,0 +1,28 @@
+THE FOUR LOST DAYS / LES QUATRE JOURS PERDUS
+An extract from the Book of Enoch for the PAIX game world
+EVE Glyph Design
+
+Key ID       EVEGLYPH-ENOCH-2026-0725
+Issued       25 July 2026, Lenexa, Kansas
+Author       Dany Thériault
+Scope        1 Enoch 72-82 (Astronomical Book) only. Chapters 1-36, 37-71,
+             83-90 and 91-108 are excluded by design.
+Status       Watermarked sample. Submitted to the PAIX Church review gate.
+
+SHA-256
+  content payload                     009f2fe3f7aaf59b58929623fe67b0433014e898c04fd19cb3d08d3c655ee204
+  Les-Quatre-Jours-Perdus.pdf         b0fdf3a600a5bfe2f7d4f6a535afce96480fdd6e88b22b1b82e9fc63b6bc3290
+  LES-QUATRE-JOURS-PERDUS.md          aac2821b1d7174c7afa73e7d66d194e6f06bda9f68eb8ad96c953fb908187884
+
+Published in:
+  github.com/EVEglyphDesign/paix-educational-game
+  github.com/EVEglyphDesign/eve-hyperloop
+
+Scripture quoted verbatim from R. H. Charles (Oxford), public domain.
+
+© 2026 Dany Theriault. EVE "digital stem cell" glyph and glyph-based design
+principles - all rights reserved. Stewardship of rights of use and assignment
+for large public and institutional usage rests with the Pacific Utilities
+Design Council.
+
+pour le bien-être du peuple
