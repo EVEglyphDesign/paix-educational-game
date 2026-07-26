@@ -433,11 +433,13 @@
           <button class="act ghost" id="paix-back">Back to parish portal</button>
         </div>
         <a class="secondary-link" href="https://eveglyphdesign.github.io/paix-educational-game/">Not a parishioner? Read the repository landing instead.</a>
+        <a class="secondary-link" id="paix-demo" href="?demo=1" style="opacity:.7">Team demo — skip straight to the sphere →</a>
 
         ${FOOTER}
       </div>`);
     document.getElementById("paix-go").onclick = intro;
     document.getElementById("paix-back").onclick = () => { window.location.href = "https://eveglyphdesign.github.io/paix-parish-platform/"; };
+    document.getElementById("paix-demo").onclick = (e) => { e.preventDefault(); demoSphere(); };
   }
 
   function intro() {
@@ -691,6 +693,25 @@
     });
   }
 
-  // boot — parishioner enters at the PAIX cover, which hands off to intro()
-  paix();
+  // ---------- team demo shortcut ----------
+  // One-click path straight to the interactive sphere, bypassing the gated
+  // parishioner intro (cover → intro → start-position → consent → demo).
+  // For internal team review only. The parishioner flow above is untouched.
+  function demoSphere() {
+    S.registry = [];          // no loved-things loss layer in bare demo
+    S.consented = false;
+    S.speed = 0.12;
+    const sp = document.getElementById("speed"); if (sp) sp.value = 12;
+    seedTriangle();
+    startPlay();
+    say("Demo mode — tap the sphere to add agents. 👽", 3200);
+  }
+
+  function demoRequested() {
+    const q = (location.search + " " + location.hash).toLowerCase();
+    return /[?&#]demo(=1|=true)?\b/.test(q) || q.includes("demo");
+  }
+
+  // boot — team demo link jumps to the sphere; everyone else enters at the PAIX cover
+  if (demoRequested()) demoSphere(); else paix();
 })();
